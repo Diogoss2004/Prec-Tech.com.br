@@ -1,0 +1,592 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Prec-Tech — Soluções de Precisão</title>
+  <style>
+    :root {
+      --accent: #0b5fff;
+      --muted: #6b7280;
+      --bg: #f7fafc;
+      --card: #ffffff;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: #0f172a;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 1300px;
+      margin: 40px auto;
+      padding: 0 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .logo img {
+      height: auto;
+      width: 100%;
+      object-fit: contain;
+      max-width: 100%;
+    }
+
+    .qualidade img {
+      height: auto;
+      width: 100%;
+      object-fit: contain;
+      max-width: 100%; /* Ajuste para manter o tamanho responsivo */
+    }
+
+    .logo1 img {
+      height: auto;
+      width: 100%; /* Ajuste para manter o tamanho responsivo */
+      object-fit: contain;
+      max-width: 100%;
+    }
+
+    .hero {
+      margin-top: 18px;
+      padding: 20px;
+      background: linear-gradient(180deg, rgba(11, 95, 255, 0.06), transparent);
+      border-radius: 12px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+      width: 100%;
+      justify-items: center;
+    }
+
+    @media (min-width: 840px) {
+      .hero-grid {
+        grid-template-columns: 2fr 1fr;
+      }
+    }
+
+    .specialties {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+      justify-items: center;
+      width: 100%;
+      padding: 0 20px;
+    }
+
+    .spec-card {
+      background: var(--card);
+      padding: 14px;
+      border-radius: 10px;
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.04);
+      width: 100%;
+      max-width: 300px;
+    }
+
+    .spec-card h3 {
+      margin: 0 0 6px;
+      font-size: 16px;
+    }
+
+    .spec-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .videos-section {
+      margin-top: 28px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .videos-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      width: 100%;
+      justify-items: center;
+    }
+
+    @media (min-width: 720px) {
+      .videos-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1100px) {
+      .videos-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .video-card {
+      background: var(--card);
+      padding: 12px;
+      border-radius: 10px;
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.04);
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      max-width: 600px;
+    }
+
+    .video-card video {
+      border-radius: 8px;
+      max-height: 240px;
+      background: #000;
+      outline: none;
+      width: 100%;
+    }
+
+    .video-card img {
+      border-radius: 8px;
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    .video-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 10px;
+    }
+
+    .video-title {
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .video-duration {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    footer {
+      margin-top: 40px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+      width: 100%;
+    }
+
+    /* Responsividade para logo e outros ajustes */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .logo img {
+        height: 100%;
+        width: 100%;
+        max-width: 80%;
+      }
+
+      .qualidade img {
+        width: 100%; /* Ajuste para telas menores */
+      }
+
+      .logo1 img {
+        width: 100%; /* Ajuste para telas menores */
+      }
+
+      .video-card {
+        padding: 10px;
+      }
+
+      .video-card video {
+        width: 100%;
+        height: auto;
+      }
+
+      .video-card img {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .specialties {
+        grid-template-columns: 1fr;
+      }
+
+      .spec-card {
+        padding: 12px;
+      }
+
+      .videos-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .video-card {
+        flex-direction: column;
+        padding: 10px;
+      }
+
+      .video-card video,
+      .video-card img {
+        width: 100%;
+      }
+
+      .video-card div {
+        width: 100%;
+        text-align: center;
+        margin-top: 10px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">
+        <img src="Logo.png" width="500px" height="150px" />
+      </div>
+      <div class="qualidade">
+        <img src="qualidade.png" width="500px" height="150px" />
+      </div>
+      <div class="logo1">
+        <img src="51anos.png" width="500px" height="150px" />
+      </div>
+    </header>
+
+    <!-- O restante do código permanece inalterado -->
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+
+
+    <main>
+      <section class="hero">
+        <div class="container">
+          <div>
+            <h1>Processos de Fabricação</h1>
+            <p>A Prec-Tech atua em diversos segmentos como hidrogeração, energia eólica, automobilística, eletroeletrônicas, siderurgia, Nuclear, Papel e Celulose, Tratores, Ferroviario bens de capital, e possui um grande destaque no setor de Óleo e Gás, pois atende as mais complexas especificações de matérias primas, tratamentos térmicos e revestimento.</p>
+
+        <!-- Seção de Vídeos e Imagens -->
+         
+        <div class="videos-section">
+          <div class="videos-grid">
+
+            <!-- Primeiro vídeo com descrição -->
+            <div class="video-card">
+              <div>
+                <h2>Usinagem CNC de alta precisão</h2>
+                <p>com suporte de Inteligência Artificial e monitoramento dimensional por sistemas Renishaw.</p>
+
+              </div>
+              <img src="usinagem2.jpg" alt="Imagem exemplo 2" /> <br>
+              <img src="usinagem3.jpg" alt="Imagem exemplo 2" /> <br>
+              <img src="usinagem5.jpg" alt="Imagem exemplo 2" /> <br>
+              <img src="usinagem6.jpg" alt="Imagem exemplo 2" /> <br>
+              <img src="usinagem7.jpg" alt="Imagem exemplo 2" /> <br>
+              
+
+              <video controls preload="metadata">
+                <source src="usinagem4.mp4" type="video/mp4" />
+                Seu navegador não suporta vídeo.
+              </video> <br>
+              
+              <video controls preload="metadata">
+                <source src="usinagem1.mp4" type="video/mp4" />
+                Seu navegador não suporta vídeo.
+              </video>
+
+            </div>
+
+            <!-- Segundo vídeo com descrição -->
+            <div class="video-card">
+              <div>
+                <h2>A Laminação de Rosca</h2>
+                <p>É um processo de conformação mecânica a frio. Método que proporciona significativo aumento da resistência à fadiga e é indicado para componentes que exigem elevada durabilidade e desempenho mecânico.</p>
+              </div>
+
+                <video controls preload="metadata">
+                <source src="laminacao4.mp4" type="video/mp4" />
+                Seu navegador não suporta vídeo.
+              </video> <br>
+
+              <img src="Peça Rosca.jpeg" alt="Imagem exemplo 2" /> <br>
+              <img src="laminacao3.jpg" alt="Imagem exemplo 2" /> <br>
+              
+              <video controls preload="metadata">
+                <source src="laminacao7.mp4" type="video/mp4" />
+                Seu navegador não suporta vídeo.
+              </video> <br>
+              
+              <video controls preload="metadata">
+                <source src="laminacao1.mp4" type="video/mp4" />
+                Seu navegador não suporta vídeo.
+              </video> <br>
+
+              <video controls preload="metadata">
+                <source src="laminacao6.mp4" type="video/mp4" />
+                Seu navegador não suporta vídeo.
+              </video>
+
+            </div>
+              
+
+              <!-- Terceiro vídeo com descrição -->
+            <div class="video-card">
+              <div>
+                <h2>Tensionadores Mecânicos</h2>
+                <p>Projetados para aplicar carga axial precisa em parafusos, eliminando as incertezas associadas ao aperto convencional por torque. Sua utilização tem como ponto principal o controle rigoroso de pré-carga controlada, segurança operacional, repetibilidade, precisão na aplicação da carga, maior vida útil do componente e aplicação simultânea garantindo distribuição uniforme de carga da união.</p>
+
+              </div>
+              <img src="Tensionador1.jpg" alt="Imagem exemplo 2" /> <br>
+              <img src="Tensionador4.jpg" alt="Imagem exemplo 2" /> <br>
+              
+              <video controls preload="metadata">
+                <source src="Tensionador2.mp4" type="video/mp4" />
+                Seu navegador não suporta vídeo.
+              </video> <br>
+
+              <video controls preload="metadata">
+                <source src="Tensionador3.mp4" type="video/mp4" />
+                Seu navegador não suporta vídeo.
+              </video>
+            </div>
+
+
+            <!-- Terceiro vídeo com descrição -->
+            <div class="video-card">
+              <div>
+                <h2>Fixadores API de Alta Resistência </h2>
+                <p>Com Certificação API Os fixadores de alta resistência com certificação API são fabricados segundo critérios rigorosos que abrangem composição química controlada, tratamento térmico adequado, resistência mecânica elevada, precisão dimensional e rastreabilidade completa. São amplamente utilizados em aplicações críticas nos setores de óleo e gás, petroquímico, energia e perfuração, onde a segurança, a resistência à corrosão, a tolerância a altas pressões e o desempenho técnico confiável são indispensáveis.</p>
+
+              </div>
+              <img src="fixador1.jpg" alt="Imagem exemplo 2" /> <br>
+              <img src="fixador2.jpg" alt="Imagem exemplo 2" /> <br>
+              <img src="fixador4.jpg" alt="Imagem exemplo 2" /> <br>
+              <img src="fixador12.jpg" alt="Imagem exemplo 2" height="300px" /> <br>
+              <img src="fixador6.jpg" alt="Imagem exemplo 2" /> <br>
+  
+              <video controls preload="metadata">
+                <source src="fixador9.mp4" type="video/mp4" />
+                Seu navegador não suporta vídeo.
+              </video> <br>
+              
+              <video controls preload="metadata">
+                <source src="fixador8.mp4" type="video/mp4" />
+                Seu navegador não suporta vídeo.
+              </video> <br>
+              
+              <video controls preload="metadata">
+                <source src="fixador7.mp4" type="video/mp4" />
+                Seu navegador não suporta vídeo.
+              </video> <br>
+              
+              <video controls preload="metadata">
+                <source src="fixador10.mp4" type="video/mp4" />
+                Seu navegador não suporta vídeo.
+              </video> <br>
+              
+              <video controls preload="metadata">
+                <source src="fixador11.mp4" type="video/mp4" />
+                Seu navegador não suporta vídeo.
+              </video> <br>
+        
+              <video controls preload="metadata">
+                <source src="fixador3.mp4" type="video/mp4" />
+                Seu navegador não suporta vídeo.
+              </video> <br>
+
+              <video controls preload="metadata">
+                <source src="fixador5.mp4" type="video/mp4" />
+                Seu navegador não suporta vídeo.
+              </video>
+            </div> 
+
+
+              <!-- Quarto vídeo com descrição e imagem -->
+            <div class="video-card">
+              <div>
+                <h2>Forjamento</h2>
+                <p>Convencional em matriz fechada com aquecimento indutivo e controlada com pirometro óptico</p>
+                </div>
+                <img src="forja1.jpeg" alt="Imagem exemplo" /> <br>
+                <img src="Foto Forja.jpeg" alt="Imagem exemplo" /> <br>
+              <video controls preload="metadata">
+                <source src="Video forja.mp4" type="video/mp4" />
+                Seu navegador não suporta vídeo.
+              </video>
+              </div>
+
+            <!-- Quinto vídeo com descrição -->
+            <div class="video-card">
+              <div>
+                <h2>Calibradores e Dispositivos de Alta Precisão </h2>
+                <p>Produzidos com rigor técnico e materiais de qualidade para oferecer durabilidade, estabilidade e resultados confiáveis em aplicações industriais.</p>
+                
+              </div>
+              <img src="calibrador1.jpg" alt="Imagem exemplo 2" /> <br>
+              <img src="calibrador2.jpeg" alt="Imagem exemplo 2" height="350px"/> <br>
+              <img src="calibrador3.jpg" alt="Imagem exemplo 2" /> <br>
+          </div>
+
+      <!-- Sexto vídeo com descrição -->
+            <div class="video-card">
+              <div>
+                <h2>Medição por Cordenadas Tridimensional</h2>
+                <p>Equipamentos de última geração, voltados à inspeção de peças com geometria complexa, assegura a conformidade dimensional e o desempenho funcional dos componentes.</p>
+              </div>
+  
+              <img src="Tridimensional3.jpg" alt="Imagem exemplo 2" /> <br>
+              <img src="Tridimensional1.jpg" alt="Imagem exemplo 2" /> <br>
+              <img src="Tridimensional2.jpeg" alt="Imagem exemplo 2" /> <br>
+              <video controls preload="metadata">
+                <source src="Video Tirante.mp4" type="video/mp4" />
+                Seu navegador não suporta vídeo.
+              </video>
+            </div>
+
+            
+
+
+            <!-- Setimo vídeo com descrição -->
+            <div class="video-card">
+              <div>
+                <h2>Soldagem com Tecnologia de Ponta, Sinérgica e High Pulse</h2>
+                <p>Soldagem de alta precisão onde a tensão, velocidade do arame e induntancia são ajustados de forma automatica e independe do soldador. Garante a estabilidade do arco-elétrico, velocidade de setup, redução de respingos, arame transferido em gotas individuais (spray), menor aporte térmico, penetração controlada, exelente acabamento e cordões uniformes com repetibilidade consistente.</p>
+                
+              </div>
+              <img src="solda1.jpg" alt="Imagem exemplo 2" height="300px"/> <br>
+              <img src="solda2.jpg" alt="Imagem exemplo 2" /> <br>
+              <img src="solda3.jpg" alt="Imagem exemplo 2" height="300px"/> <br>
+              <img src="solda4.jpg" alt="Imagem exemplo 2" /> <br>
+              <img src="solda5.jpg" alt="Imagem exemplo 2" /> <br>
+              <img src="solda6.jpg" alt="Imagem exemplo 2" /> <br>
+              <img src="solda7.jpg" alt="Imagem exemplo 2" /> <br>
+              <img src="solda8.jpg" alt="Imagem exemplo 2" /> <br>
+              <img src="solda9.jpg" alt="Imagem exemplo 2" /> <br>
+              <img src="solda10.jpg" alt="Imagem exemplo 2" /> <br>
+              <img src="solda11.jpg" alt="Imagem exemplo 2" /> <br>
+              <img src="solda12.jpg" alt="Imagem exemplo 2" /> <br>
+              <img src="solda13.jpg" alt="Imagem exemplo 2" /> <br>
+             
+              <video controls preload="metadata">
+                <source src="solda14.mp4" type="video/mp4" />
+                Seu navegador não suporta vídeo.
+              </video>
+            </div>
+
+
+            <div class="video-card">
+              <div>
+                <h2>Impressão 3D</h2>
+                <p>A impressão 3D em metais, ou manufatura aditiva metálica, é uma tecnologia que permite a fabricação de peças metálicas com geometrias complexas e alta resistência, diretamente a partir de modelos digitais. O processo consiste na fusão de camadas sucessivas de pó metálico, resultando em componentes precisos e otimizados. Tecnologia aplicada em setores como aeroespacial, automotivo, biomédico e energia, permitindo a produção de peças com peso reduzido, canais internos, alta performance mecânica e baixo desperdício de material. Além disso, possibilita a produção sob demanda, personalização e manutenção de estoques virtuais, com prazos significativamente reduzidos.</p>
+              </div>
+  
+              <video controls preload="metadata">
+                <source src="Impressão 3D1.mp4" type="video/mp4" />
+                Seu navegador não suporta vídeo.
+              </video>
+
+              <img src="Impressão 3D5.jpg" alt="Imagem exemplo 2" /> <br>
+              <img src="impressão 3D3.jpg" alt="Imagem exemplo 2" /> <br>
+              <img src="impressão 3D4.jpg" alt="Imagem exemplo 2" /> <br>
+
+              <video controls preload="metadata">
+                <source src="Impressão 3D.mp4" type="video/mp4" />
+                Seu navegador não suporta vídeo.
+              </video> <br>
+
+              <img src="Impressão 3D2.jpg" alt="Imagem exemplo 2" height="380px"/> <br>
+            </div>
+
+
+            <div class="video-card">
+              <div>
+                <h2>Montagem, Integração e Validação de Equipamentos</h2>
+                <p>Oferecemos aos nossos clientes uma solução completa e ágil para projetos que demandam precisão, segurança e conformidade com normas técnicas e industriais. Contamos com uma equipe técnica altamente qualificada e uma expertise consolidada na montagem, integração e validação de equipamentos específicos, desenvolvidos sob demanda. Atuamos em todas as etapas do processo: desde a fabricação e montagem mecânica e eletroeletrônica, passando pela integração de sistemas, até a validação funcional final, assegurando que cada equipamento atenda plenamente aos requisitos técnicos e operacionais definidos em projeto.</p>
+              </div>
+  
+               <video controls preload="metadata">
+                <source src="montagem1.mp4" type="video/mp4" />
+                Seu navegador não suporta vídeo.
+              </video> <br>
+
+                <video controls preload="metadata">
+                <source src="montagem2.mp4" type="video/mp4" />
+                Seu navegador não suporta vídeo.
+              </video> <br>
+
+               <video controls preload="metadata">
+                <source src="montagem3.mp4" type="video/mp4" />
+                Seu navegador não suporta vídeo.
+              </video> <br>
+
+              <img src="montagem5.jpg" alt="Imagem exemplo 2" height="500px" /> <br>
+
+              <video controls preload="metadata">
+                <source src="montagem4.mp4" type="video/mp4" />
+                Seu navegador não suporta vídeo.
+              </video>
+            </div>
+
+            <div class="video-card">
+              <div>
+                <h2>Sistema de Controle por QR Code e Código de Barras</h2>
+                <p>Contamos com esse sistema de rastreabilidade totalmente consolidado, em operação há aproximadamente 15 anos. O que nos permite monitorar em tempo real, além de reduzir falhas operacionais, otimizar processos e garantir a conformidade com os mais altos padrões de qualidade exigidos sobre o processo produtivo, desde a entrada de matéria-prima até a expedição final do produto com rastreabilidade completa.</p>
+              </div>
+  
+              <img src="processo1.jpg" alt="Imagem exemplo 2" /> <br>
+
+                
+            </div>
+            
+
+        <!-- Outros vídeos e imagens podem seguir a mesma estrutura -->
+          </div>
+        </div>
+
+      </section>
+
+      <footer>
+        © <span id="year"></span> Prec-Tech — Todos os direitos reservados
+      </footer>
+    </main>
+
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
