@@ -1,4 +1,5 @@
 <!doctype html>
+# Prec-Tech.com.br
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8" />
@@ -40,33 +41,34 @@
     }
 
     header {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      justify-content: center;
-      width: 100%;
-    }
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  justify-content: center;
+  width: 100%;
+  flex-wrap: wrap; /* Permite que as logos quebrem para a linha seguinte em telas pequenas */
+}
 
-    .logo img {
-      height: auto;
-      width: 100%;
-      object-fit: contain;
-      max-width: 100%;
-    }
+.logo, .qualidade, .logo1 {
+  flex: 1 1 33%; /* Faz com que as logos ocupem 33% do espaço */
+  max-width: 33%; /* Limita o máximo de largura */
+}
 
-    .qualidade img {
-      height: auto;
-      width: 100%;
-      object-fit: contain;
-      max-width: 100%; /* Ajuste para manter o tamanho responsivo */
-    }
+.logo img, .qualidade img, .logo1 img {
+  height: auto;
+  width: 100%;
+  object-fit: contain;
+  max-width: 100%;
+}
 
-    .logo1 img {
-      height: auto;
-      width: 100%; /* Ajuste para manter o tamanho responsivo */
-      object-fit: contain;
-      max-width: 100%;
-    }
+@media (max-width: 768px) {
+  .logo, .qualidade, .logo1 {
+    flex: 1 1 100%; /* Em telas pequenas, as logos ocupam toda a largura */
+    max-width: 100%; /* Garantir que as logos ocupem toda a largura da tela */
+  }
+}
+
+  
 
     .hero {
       margin-top: 18px;
