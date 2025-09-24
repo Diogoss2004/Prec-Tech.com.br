@@ -1,5 +1,4 @@
 <!doctype html>
-# Prec-Tech.com.br
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8" />
@@ -41,34 +40,28 @@
     }
 
     header {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  justify-content: center;
-  width: 100%;
-  flex-wrap: wrap; /* Permite que as logos quebrem para a linha seguinte em telas pequenas */
-}
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      justify-content: center;
+      width: 100%;
+      flex-wrap: wrap; /* Permite que as logos quebrem para a linha seguinte em telas pequenas */
+    }
 
-.logo, .qualidade, .logo1 {
-  flex: 1 1 33%; /* Faz com que as logos ocupem 33% do espaço */
-  max-width: 33%; /* Limita o máximo de largura */
-}
+    .logo, .qualidade, .logo1 {
+      flex: 1 1 33%; /* Faz com que as logos ocupem 33% do espaço */
+      max-width: 33%; /* Limita o máximo de largura */
+      display: flex;
+      justify-content: center; /* Alinha as imagens no centro */
+      align-items: center;
+    }
 
-.logo img, .qualidade img, .logo1 img {
-  height: auto;
-  width: 100%;
-  object-fit: contain;
-  max-width: 100%;
-}
-
-@media (max-width: 768px) {
-  .logo, .qualidade, .logo1 {
-    flex: 1 1 100%; /* Em telas pequenas, as logos ocupam toda a largura */
-    max-width: 100%; /* Garantir que as logos ocupem toda a largura da tela */
-  }
-}
-
-  
+    .logo img, .qualidade img, .logo1 img {
+      height: auto;
+      width: 100%;
+      object-fit: contain;
+      max-width: 100%;
+    }
 
     .hero {
       margin-top: 18px;
@@ -205,35 +198,19 @@
     /* Responsividade para logo e outros ajustes */
     @media (max-width: 768px) {
       header {
-        flex-direction: column;
+        flex-direction: column; /* Em telas menores, as logos ficam empilhadas */
         align-items: center;
       }
 
-      .logo img {
-        height: 100%;
-        width: 100%;
-        max-width: 80%;
+      .logo, .qualidade, .logo1 {
+        flex: 1 1 100%; /* Faz com que cada logo ocupe 100% da largura */
+        max-width: 100%; /* Garante que ocupem toda a largura disponível */
+        padding: 10px; /* Adiciona um pequeno espaço interno */
       }
 
-      .qualidade img {
-        width: 100%; /* Ajuste para telas menores */
-      }
-
-      .logo1 img {
-        width: 100%; /* Ajuste para telas menores */
-      }
-
-      .video-card {
-        padding: 10px;
-      }
-
-      .video-card video {
-        width: 100%;
-        height: auto;
-      }
-
-      .video-card img {
-        width: 100%;
+      .logo img, .qualidade img, .logo1 img {
+        max-width: 100%; /* As imagens ocuparão a largura disponível */
+        height: auto; /* Mantém a altura proporcional */
       }
     }
 
@@ -255,8 +232,7 @@
         padding: 10px;
       }
 
-      .video-card video,
-      .video-card img {
+      .video-card video, .video-card img {
         width: 100%;
       }
 
@@ -266,7 +242,6 @@
         margin-top: 10px;
       }
     }
-
   </style>
 </head>
 <body>
@@ -291,6 +266,7 @@
   </script>
 </body>
 </html>
+
 
 
     <main>
